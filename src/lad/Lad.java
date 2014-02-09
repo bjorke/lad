@@ -16,13 +16,17 @@ public class Lad {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        //start the loging
         long start = System.currentTimeMillis();
-
+        
+        //the integer array same 10 numbers 10 times.
         int[] i = {10, 29, 98, 75, 16, 53, 4, 23, 2, 1, 10, 29, 98, 75, 16, 53, 4, 23, 2, 1, 10, 29, 98, 75, 16, 53, 4, 23, 2, 1, 10, 29, 98, 75, 16, 53, 4, 23, 2, 1, 10, 29, 98, 75, 16, 53, 4, 23, 2, 1, 10, 29, 98, 75, 16, 53, 4, 23, 2, 1, 10, 29, 98, 75, 16, 53, 4, 23, 2, 1, 10, 29, 98, 75, 16, 53, 4, 23, 2, 1, 10, 29, 98, 75, 16, 53, 4, 23, 2, 1, 10, 29, 98, 75, 16, 53, 4, 23, 2, 1};
         int[] a = Lad.insertionSort(i);
+        //loops the return from the insertionSort method
         for (int iLoop = 0; iLoop < a.length; iLoop++) {
             System.out.println("a;" + a[iLoop]);
         }
+        //stops the log time subtracts the start time from the finishing time and prints it.
         long end = System.currentTimeMillis();
         long duration = end - start;
         System.out.println("Sorting took " + duration + " ms");
