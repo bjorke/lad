@@ -8,6 +8,7 @@ package lad;
 /**
  * @author administrator
  */
+import java.util.Random;
 public class Lad {
 
     /**
@@ -20,7 +21,7 @@ public class Lad {
     }
 
     public static void timeTester() {
-
+        System.out.println("timeTester");
         long timeTest = 0;
         for (int i = 0; i < 100; i++) {
             timeTest += Lad.startTimeTest();
@@ -38,8 +39,13 @@ public class Lad {
     public static long startTimeTest() {
         long start = System.nanoTime();
 
-        //the integer array same 10 numbers 10 times.
-        int[] i = {10, 29, 98, 75, 16, 53, 4, 23, 2, 1, 10, 29, 98, 75, 16, 53, 4, 23, 2, 1, 10, 29, 98, 75, 16, 53, 4, 23, 2, 1, 10, 29, 98, 75, 16, 53, 4, 23, 2, 1, 10, 29, 98, 75, 16, 53, 4, 23, 2, 1, 10, 29, 98, 75, 16, 53, 4, 23, 2, 1, 10, 29, 98, 75, 16, 53, 4, 23, 2, 1, 10, 29, 98, 75, 16, 53, 4, 23, 2, 1, 10, 29, 98, 75, 16, 53, 4, 23, 2, 1, 10, 29, 98, 75, 16, 53, 4, 23, 2, 1};
+        //The integer array generates 10000 numbers with numbers up to 100.
+        int[] i = new int[10000];
+        Random randomGenerator = new Random();
+        for (int idx = 0; idx < 10000; idx++){
+            int randomInt = randomGenerator.nextInt(100);
+            i[idx]=randomInt;
+        }
         int[] a = Lad.insertionSort(i);
         //loops the return from the insertionSort method
         /*
