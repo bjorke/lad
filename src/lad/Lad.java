@@ -6,7 +6,6 @@
 package lad;
 
 /**
- *
  * @author administrator
  */
 public class Lad {
@@ -17,19 +16,44 @@ public class Lad {
     public static void main(String[] args) {
         // TODO code application logic here
         //start the loging
-        long start = System.currentTimeMillis();
-        
+        Lad.timeTester();
+    }
+
+    public static void timeTester() {
+
+        long timeTest = 0;
+        for (int i = 0; i < 100; i++) {
+            timeTest += Lad.startTimeTest();
+        }
+        System.out.println("Total time taken is;" + timeTest);
+        timeTest = timeTest / 100;
+        System.out.println("Total time per operation is in nano seconds is;" + timeTest);
+        // Get elapsed time in milliseconds
+        double elapsedTimeMillis = timeTest / 1000000000.0;
+        System.out.println("Total time per operation in seconds is;" + elapsedTimeMillis);
+
+
+    }
+
+    public static long startTimeTest() {
+        long start = System.nanoTime();
+
         //the integer array same 10 numbers 10 times.
         int[] i = {10, 29, 98, 75, 16, 53, 4, 23, 2, 1, 10, 29, 98, 75, 16, 53, 4, 23, 2, 1, 10, 29, 98, 75, 16, 53, 4, 23, 2, 1, 10, 29, 98, 75, 16, 53, 4, 23, 2, 1, 10, 29, 98, 75, 16, 53, 4, 23, 2, 1, 10, 29, 98, 75, 16, 53, 4, 23, 2, 1, 10, 29, 98, 75, 16, 53, 4, 23, 2, 1, 10, 29, 98, 75, 16, 53, 4, 23, 2, 1, 10, 29, 98, 75, 16, 53, 4, 23, 2, 1, 10, 29, 98, 75, 16, 53, 4, 23, 2, 1};
         int[] a = Lad.insertionSort(i);
         //loops the return from the insertionSort method
+        /*
         for (int iLoop = 0; iLoop < a.length; iLoop++) {
-            System.out.println("a;" + a[iLoop]);
+            //System.out.println("a;" + a[iLoop]);
         }
+        */
         //stops the log time subtracts the start time from the finishing time and prints it.
-        long end = System.currentTimeMillis();
+        long end = System.nanoTime();
         long duration = end - start;
-        System.out.println("Sorting took " + duration + " ms");
+        //System.out.println("Sorting took " + duration + " ms");
+
+        return duration;
+
 
     }
 
