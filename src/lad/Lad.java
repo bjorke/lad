@@ -8,7 +8,9 @@ package lad;
 /**
  * @author administrator
  */
+
 import java.util.Random;
+
 public class Lad {
 
     /**
@@ -22,16 +24,19 @@ public class Lad {
 
     public static void timeTester() {
         System.out.println("timeTester");
-        long timeTest = 0;
+        long totalTime = 0;
+        //Loops the test 100 times
         for (int i = 0; i < 100; i++) {
-            timeTest += Lad.startTimeTest();
+            totalTime += Lad.startTimeTest();
         }
-        System.out.println("Total time taken is;" + timeTest);
-        timeTest = timeTest / 100;
-        System.out.println("Total time per operation is in nano seconds is;" + timeTest);
-        // Get elapsed time in milliseconds
-        double elapsedTimeMillis = timeTest / 1000000000.0;
-        System.out.println("Total time per operation in seconds is;" + elapsedTimeMillis);
+        //Prints the total time for all operations
+        System.out.println("Total time taken in nanoseconds is;" + totalTime);
+        System.out.println("Total time taken in seconds is;" + totalTime / 1000000000.0);
+        //Divides the total time by the total number of loops
+        long perOperationTime = totalTime / 100;
+        //Prints the average time per operation
+        System.out.println("Total time per operation is in nanoseconds is;" + perOperationTime);
+        System.out.println("Total time per operation in seconds is;" + perOperationTime / 1000000000.0);
 
 
     }
@@ -42,21 +47,15 @@ public class Lad {
         //The integer array generates 10000 numbers with numbers up to 100.
         int[] i = new int[10000];
         Random randomGenerator = new Random();
-        for (int idx = 0; idx < 10000; idx++){
+        for (int idx = 0; idx < 10000; idx++) {
             int randomInt = randomGenerator.nextInt(100);
-            i[idx]=randomInt;
+            i[idx] = randomInt;
         }
-        int[] a = Lad.insertionSort(i);
-        //loops the return from the insertionSort method
-        /*
-        for (int iLoop = 0; iLoop < a.length; iLoop++) {
-            //System.out.println("a;" + a[iLoop]);
-        }
-        */
+        //Start the sorting with generated integer array
+        Lad.insertionSort(i);
         //stops the log time subtracts the start time from the finishing time and prints it.
         long end = System.nanoTime();
         long duration = end - start;
-        //System.out.println("Sorting took " + duration + " ms");
 
         return duration;
 
@@ -75,6 +74,7 @@ public class Lad {
             }
             a[j] = cur;
         }
+        //Returns the array
         return a;
     }
 }
