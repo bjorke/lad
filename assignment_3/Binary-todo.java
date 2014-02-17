@@ -4,7 +4,7 @@ class Binary {
   public static String toBinaryString(int n) {
 
     // TODO
-
+    return null;
   }
 
   public static void main (String args[]) {
